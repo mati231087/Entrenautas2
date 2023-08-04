@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "foro",
     "usuario",
     "administrador",
+    "config"
 ]
 
 MIDDLEWARE = [
