@@ -14,21 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from foro.models import Post, Comment
-
-
-
+from foro.views import CommentView, PostView
 
 urlpatterns = [
+    path("", TemplateView.as_view(template_name='foro/index.html'), name="index"),
     path('admin/', admin.site.urls),
     path('administrador/', include('administrador.urls')),  
+    path('comment/', CommentView.as_view(), name="comment"),
+    path('post/', PostView.as_view(), name="post"),
     path('', include('foro.urls')),
-    path("", include('config.urls')),
-    path("", TemplateView.as_view(template_name='index.html'), name="index"),
-    path("comment", include("Comment.urls")),
-    path("cost", include("Post.urls")),
 ]
