@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from foro.views import CommentView, PostView
 
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name='foro/index.html'), name="index"),
     path('admin/', admin.site.urls),
